@@ -1,5 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Comment, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Comment do
+
+  describe "comment members" do
+    it { should respond_to(:user_id) }
+    it { should respond_to(:message_id) }
+    it { should respond_to(:content) }
+  end
+
 end

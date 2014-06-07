@@ -1,5 +1,10 @@
-require 'rails_helper'
+require 'spec_helper'
 
-RSpec.describe Friendship, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Friendship do
+
+  describe "friendship members" do
+    it { should respond_to(:user_id) }
+    it { should respond_to(:friend_id) }
+  end
+
 end

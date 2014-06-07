@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :comment do |c|
-    c.content "MyString"
+    c.content Faker::Lorem.sentence(3)
     c.association :message
     c.association :user
   end
