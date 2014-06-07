@@ -1,0 +1,14 @@
+<div class="center hero-unit">
+  <h1>Welcome to Pulse </h1>
+  <h2>
+    A quick demo
+  </h2>  
+  <div>
+    <h3>List of Other Pulsers</h3>
+    <ul>
+      <% @users.each do |user| %>
+        <% next if current_user && current_user == user %>
+        <%= render "users/user", user: user %>
+      <% end %>
+    </ul>
+</div>

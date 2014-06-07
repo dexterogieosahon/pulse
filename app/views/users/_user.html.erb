@@ -1,0 +1,16 @@
+<li>
+  <%= link_to "#{user.name}", user %> | <%= user.email %>
+  <% if signed_in? %>
+    <% if current_user.friends_with?(user) %>
+      <%= link_to "Breakup with #{user.name}", breakup_path(friend_id: user.id), remote: true, method: :delete %>
+    <% else %>
+      <%= link_to "Befriend #{user.name}", friends_path(friend_id: user.id), remote: true, method: :post %>
+    <% end %>
+    | 
+    <% if user.blocked? %>
+      <%= link_to "Unblock User", unblock_path(id: user.id), remote: true, method: :post %>
+    <% else %>
+      <%= link_to "Block #{user.name}", block_path(id: user.id), remote: true, method: :post %>
+    <% end %>
+  <% end %>
+</li><br />

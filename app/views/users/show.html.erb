@@ -1,0 +1,48 @@
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <% if signed_in? && current_user != @user %>
+          <%= "#{current_user.name} is viewing #{@user.name}'s page"%>
+        <% else %>
+          <%= "#{@user.name} | #{@user.email}" %>
+        <% end %>
+      </h1>
+    </section>
+  </aside>
+</div>
+
+<div id="posts">
+  <h1>Posts</h1>
+  <p>Post count: <%= @messages.count %></p>
+  <ul>
+    <%= render partial: "messages/message", collection: @messages %>
+  </ul>
+  <div id="new-post">New Post
+    <%= render partial: "messages/message_form" %>
+  </div>
+</div>
+
+<div id="friends">
+  <h1>Friend list</h1>
+    <% if @friends.any? %></p>
+      <ul>
+        <%= render partial: "users/user", collection: @friends %>
+      </ul>
+    <% else %>
+      <p>No friends found.</p>
+    <% end %>
+</div>
+
+<div id="friends-messages">
+  <h1>Friend's messages</h1>
+    <% if @friends.any? %></p>
+      <ul> 
+        <% @friends.each do |friend| %>
+          <%= render partial: "messages/message", collection: friend.messages %>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No friend's messages found.</p>
+    <% end %>
+</div>

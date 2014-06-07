@@ -1,0 +1,14 @@
+<h1><%= link_to "Showing Message", root_path %></h1>
+
+<div class="row">
+  <div class="span6 offset3"> 
+    <%= @message.content %>
+  </div>
+  <%= render "comments/comment_form" %>
+</div>
+<div class="row">
+  <h1>Comments</h1>
+    <ul>
+      <%= render partial: "comments/comment", collection: @message.comments %>
+    </ul>
+</div>

@@ -1,0 +1,13 @@
+<div id="menu">
+  <% if signed_in? %>
+    <ul>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "View Profile", current_user %></li>
+      <li><%= link_to "Edit Account", edit_user_path(current_user) %></li>
+      <li><%= link_to "Unblock All User", release_all_path, remote: true, method: :post %></li>
+      <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+    </ul>
+  <% end %>
+</div>
+
+

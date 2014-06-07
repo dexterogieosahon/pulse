@@ -1,0 +1,10 @@
+<div class="comment-form-container">
+   <%= form_for([@message, Comment.new]) do |f| %>
+    <div class="form-line">
+      <div class="textarea-container">
+        <%= f.text_area :content %>
+      </div>
+    </div>
+      <button class="bttn">Comment</button>
+  <% end %>
+</div>
